@@ -18,7 +18,7 @@ class Libro extends Model
         'anio', 
         'autor_id', 
         'categoria_id', 
-        'editorial_id'
+        
     ]; 
 
    

@@ -1,12 +1,4 @@
 <table class="table">
-    <thead><tr><th>ID</th><th>Nombre</th><th>Acciones</th></tr></thead>
-    <tbody>
-        @foreach($autores as $autor)
-        <tr>
-            <td>{{ $autor->id }}</td>
-            <td>{{ $autor->nombre }}</td>
-            <td><button class="btn btn-sm btn-warning">Editar</button></td>
-        </tr>
-        @endforeach
-    </tbody>
+    <thead><tr><th>ID</th><th>Nombre</th><th>Apellido</th><th>Nacionalidad</th><th>Acciones</th></tr></thead>
+    <tbody id="tbody-autores"></tbody>
 </table>

@@ -17,29 +17,29 @@ Auth::routes();
 
 
 Route::middleware(['auth'])->group(function () {
-    
-  
+
+
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-    
+
     Route::get('/autores', function () {
         $autores = Autor::all();
-        return view('autores.index', compact('autores'));
+        return view('autor.index', compact('autores'));
     })->name('autores.index');
 
     Route::get('/libros', function () {
         $libros = Libro::all();
-        return view('libros.index', compact('libros'));
+        return view('libro.index', compact('libros'));
     })->name('libros.index');
 
     Route::get('/categorias', function () {
         $categorias = Categoria::all();
-        return view('categorias.index', compact('categorias'));
+        return view('categoria.index', compact('categorias'));
     })->name('categorias.index');
 
     Route::get('/editoriales', function () {
         $editoriales = Editorial::all();
-        return view('editoriales.index', compact('editoriales'));
+        return view('editorial.index', compact('editoriales'));
     })->name('editoriales.index');
 
 });
