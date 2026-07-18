@@ -34,7 +34,7 @@ class Libro extends Model
     }
 
    
-    public function editorialRelacion()
+    public function editorial()
     {
        
         return $this->belongsTo(Editorial::class, 'editorial_id');

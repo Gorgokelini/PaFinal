@@ -8,38 +8,35 @@ use Illuminate\Http\Request;
 
 class LibroController extends Controller
 {
-     /**
-     * Display a listing of the resource.
-     */
-    public function index() {
-       return Libro::with(['autor', 'categoria', 'editorial'])->get();
+    public function index() 
+    {
+        $libros = Libro::with(['autor', 'categoria', 'editorial'])->get();
+        return response()->json($libros, 200);
     }
- /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request) {
-        return Libro::create($request->all());
+
+    public function store(Request $request) 
+    {
+        $libro = Libro::create($request->all());
+        return response()->json($libro, 201); // 201: Created
     }
-  /**
-     * Display the specified resource.
-     */
-    public function show($id) {
-        return Libro::with(['autor', 'categoria', 'editorial'])->findOrFail($id);
+
+    public function show($id) 
+    {
+        $libro = Libro::with(['autor', 'categoria', 'editorial'])->findOrFail($id);
+        return response()->json($libro, 200);
     }
- /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id) {
+
+    public function update(Request $request, $id) 
+    {
         $libro = Libro::findOrFail($id);
         $libro->update($request->all());
-        return $libro;
+        return response()->json($libro, 200);
     }
-   /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id) {
-       $libro = Libro::findOrFail($id);
+
+    public function destroy($id) 
+    {
+        $libro = Libro::findOrFail($id);
         $libro->delete();
-        return ['message' => 'Libro eliminado'];
+        return response()->json(['message' => 'Libro eliminado con éxito'], 200);
     }
 }

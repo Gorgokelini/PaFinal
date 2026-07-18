@@ -8,47 +8,35 @@ use Illuminate\Http\Request;
 
 class EditorialController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-       return Editorial::all();
+        return response()->json(Editorial::all(), 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-       return Editorial::create($request->all());
+        // Puedes agregar validación básica aquí si lo deseas
+        $editorial = Editorial::create($request->all());
+        return response()->json($editorial, 201); // 201: Created
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        return Editorial::findOrFail($id);
+        $editorial = Editorial::findOrFail($id);
+        return response()->json($editorial, 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $editorial = Editorial::findOrFail($id);
         $editorial->update($request->all());
-        return $editorial;
+        return response()->json($editorial, 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $editorial = Editorial::findOrFail($id);
         $editorial->delete();
-        return ['message' => 'Editorial eliminada'];
+        return response()->json(['message' => 'Editorial eliminada con éxito'], 200);
     }
 }

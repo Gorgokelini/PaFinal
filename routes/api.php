@@ -8,7 +8,7 @@ use App\Http\Controllers\Api\CategoriaController;
 use App\Http\Controllers\Api\EditorialController;
 
 
-Route::apiResource('autores', AutorController::class);
-Route::apiResource('libros', LibroController::class);
-Route::apiResource('categorias', CategoriaController::class);
-Route::apiResource('editoriales', EditorialController::class);
+Route::apiResource('autor', AutorController::class);
+Route::apiResource('libro', LibroController::class);
+Route::apiResource('categoria', CategoriaController::class);
+Route::apiResource('editorial', EditorialController::class);
