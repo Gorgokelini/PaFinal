@@ -15,9 +15,9 @@ class EditorialController extends Controller
 
     public function store(Request $request)
     {
-        // Puedes agregar validación básica aquí si lo deseas
+        
         $editorial = Editorial::create($request->all());
-        return response()->json($editorial, 201); // 201: Created
+        return response()->json($editorial, 201); 
     }
 
     public function show(string $id)

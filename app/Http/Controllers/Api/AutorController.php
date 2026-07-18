@@ -21,9 +21,8 @@ class AutorController extends Controller
      */
     public function store(Request $request)
     {
-        // Opcional: Agregar validación aquí para robustez
         $autor = Autor::create($request->all());
-        return response()->json($autor, 201); // 201: Recurso creado exitosamente
+        return response()->json($autor, 201); // 
     }
 
     /**
